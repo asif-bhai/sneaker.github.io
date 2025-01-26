@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sneaker Sanctuary</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="logo.jpg">
+
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <img src="logo.jpg" alt="Logo" class="logo">
+            <nav>
+                <ul>
+                    <li><a href="support.html">Support</a></li>
+                    <li><a href="track-order.html">Track Your Order</a></li>
+                    <li>
+                        <!-- Login Button -->
+                        <button class="login-btn" onclick="openLoginModal()">Login / Sign Up</button>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Banner -->
+    <div class="banner">
+        <img src="banner1.jpg" alt="Winter is Here Banner" class="banner-image">
+    </div>
+
+    <!-- Sections -->
+    <div class="section most-hyped">
+        <h2>Most Hyped:</h2>
+        <div class="product-grid">
+            <div class="product">
+                <img src="1.jpg" alt="Nike Jordan 1" class="product-image">
+                <p>Nike Jordan 1 (Men)</p>
+                <p>$200.00</p>
+            </div>
+            <div class="product">
+                <img src="2.jpg" alt="Adidas Gazelle" class="product-image">
+                <p>Adidas Gazelle (Unisex)</p>
+                <p>$125.00</p>
+            </div>
+            <div class="product">
+                <img src="3.png" alt="Nike Alphafly" class="product-image">
+                <p>Nike Alphafly (Women)</p>
+                <p>$250.00</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="section best-deals">
+        <h2>Best Deals:</h2>
+        <div class="product-grid">
+            <div class="product">
+                <img src="4.png" alt="Nike Air" class="product-image">
+                <p>Nike Air (Men)</p>
+                <p>$150.00</p>
+            </div>
+            <div class="product">
+                <img src="5.png" alt="Air Jordan 1 Low" class="product-image">
+                <p>Air Jordan 1 Low (Men)</p>
+                <p>$120.00</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">Delivery Info</a></li>
+                    <li><a href="#">Returns</a></li>
+                    <li><a href="#">Size Guide</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Connect</h3>
+                <ul class="social-links">
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">Twitter</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Payment</h3>
+                <img src="placeholder-payment.png" alt="Payment Methods" class="payment-icons">
+            </div>
+        </div>
+    </footer>
+
+    <div id="login-modal">
+        <div class="modal-content">
+            <h2 id="modal-title">Login</h2>
+    
+            <!-- Login Form -->
+            <form id="login-form" action="login.php" method="POST" style="display: block;">
+                <!-- Email input for login -->
+                <input type="email" name="email" placeholder="Enter Email" required>
+                <!-- Password input for login -->
+                <input type="password" name="password" placeholder="Enter Password" required>
+                <!-- Submit button for login -->
+                <button type="submit">Login</button>
+            </form>
+    
+            <!-- Signup Form -->
+            <form id="signup-form" action="signup.php" method="POST" style="display: none;">
+                <!-- Username input for signup -->
+                <input type="text" name="username" placeholder="Enter Username" required>
+                <!-- Email input for signup -->
+                <input type="email" name="email" placeholder="Enter Email" required>
+                <!-- Password input for signup -->
+                <input type="password" name="password" placeholder="Enter Password" required>
+                <!-- Confirm password input for signup -->
+                <input type="password" name="confirm_password" placeholder="Confirm Password" required>
+                <!-- Submit button for signup -->
+                <button type="submit">Sign Up</button>
+            </form>
+    
+            <!-- Toggle between login and signup -->
+            <p id="toggle-form">
+                Don't have an account? <a href="#" onclick="switchToSignup()">Sign Up</a>
+            </p>
+            <p id="toggle-form-back" style="display: none;">
+                Already have an account? <a href="#" onclick="switchToLogin()">Login</a>
+            </p>
+    
+            <!-- Close modal button -->
+            <button class="close-btn" onclick="closeLoginModal()">Cancel</button>
+        </div>
+    </div>
+    
+
+    <script>
+        function openLoginModal() {
+            document.getElementById('login-modal').style.display = 'flex';
+        }
+
+        function closeLoginModal() {
+            document.getElementById('login-modal').style.display = 'none';
+        }
+
+        function switchToSignup() {
+            document.getElementById('login-form').style.display = 'none';
+            document.getElementById('signup-form').style.display = 'block';
+            document.getElementById('modal-title').textContent = 'Sign Up';
+            document.getElementById('toggle-form').style.display = 'none';
+            document.getElementById('toggle-form-back').style.display = 'block';
+        }
+
+        function switchToLogin() {
+            document.getElementById('login-form').style.display = 'block';
+            document.getElementById('signup-form').style.display = 'none';
+            document.getElementById('modal-title').textContent = 'Login';
+            document.getElementById('toggle-form').style.display = 'block';
+            document.getElementById('toggle-form-back').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
